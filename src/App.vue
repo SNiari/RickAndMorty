@@ -3,7 +3,10 @@ import { RouterLink, RouterView } from "vue-router";
 <<<<<<< HEAD
 =======
 import HelloWorld from "@/components/HelloWorld.vue";
+<<<<<<< HEAD
 >>>>>>> a2ec3a25ce5edfedc93de17e0baa42f0f0f2de0d
+=======
+>>>>>>> a2ec3a2 (feat: Ajout de l'affichage de la liste des personnages dans le template)
 import Main from "@/components/Main.vue";
 </script>
 
@@ -20,7 +23,10 @@ import Main from "@/components/Main.vue";
         height="125"
         />
 
+<<<<<<< HEAD
 >>>>>>> a2ec3a25ce5edfedc93de17e0baa42f0f0f2de0d
+=======
+>>>>>>> a2ec3a2 (feat: Ajout de l'affichage de la liste des personnages dans le template)
         <Main />
       </div>
     </div>

@@ -1,12 +1,24 @@
 <template>
   <div class="container mx-auto">
+<<<<<<< HEAD
       <CharacterList :characters="characters" />
+=======
+      <h2>Liste des personnages</h2>
+      <ul>
+        <li v-for="character in characters" :key="character.id">
+          {{ character.name }}
+        </li>
+      </ul>
+>>>>>>> a2ec3a2 (feat: Ajout de l'affichage de la liste des personnages dans le template)
     </div>
 </template>
   
   <script>
   import axios from "axios";
+<<<<<<< HEAD
   import CharacterList from "./CharacterList.vue";
+=======
+>>>>>>> a2ec3a2 (feat: Ajout de l'affichage de la liste des personnages dans le template)
   
   const CHARACTER_API_URL ="https://rickandmortyapi.com/api/character/?gender=female&species=human";
   const EPISODE_API_BASE_URL = "https://rickandmortyapi.com/api/episode/";
@@ -45,7 +57,10 @@
       this.fetchCharacters(); // Appelle la fonction pour récupérer les personnages lors de la création du composant
     },
     components: {
+<<<<<<< HEAD
         CharacterList,
+=======
+>>>>>>> a2ec3a2 (feat: Ajout de l'affichage de la liste des personnages dans le template)
     },
   };
   </script>
