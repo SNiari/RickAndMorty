@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "@/components/HelloWorld.vue";
+import Main from "@/components/Main.vue";
 </script>
 
 <template>
@@ -14,14 +15,14 @@ import HelloWorld from "@/components/HelloWorld.vue";
         height="125"
         />
 
-        <HelloWorld msg="You did it!" />
+        <Main />
       </div>
     </div>
   </header>
-
   <RouterView />
 </template>
 
 <style>
 @import "@/assets/app.css";
 </style>
+
