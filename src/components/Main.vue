@@ -1,55 +1,57 @@
 <template>
   <div class="container mx-auto">
-      <CharacterList :characters="characters" />
-    </div>
+    <CharacterList :characters="characters" @character-clicked="showCharacterEpisodes" />
+    <CharacterModal ref="characterModal" />
+  </div>
 </template>
-  
-  <script>
-  import axios from "axios";
-  import CharacterList from "./CharacterList.vue";
-  
-  const CHARACTER_API_URL ="https://rickandmortyapi.com/api/character/?gender=female&species=human";
-  const EPISODE_API_BASE_URL = "https://rickandmortyapi.com/api/episode/";
-  
-  export default {
-    data() {
-      return {
-        characters: [], // Initialise un tableau vide pour stocker les personnages
-      };
+
+<script>
+import api from "../rick-morti.api";
+import CharacterList from "./CharacterList.vue";
+import CharacterModal from "./CharacterModal.vue";
+
+export default {
+  data() {
+    return {
+      characters: [],
+    };
+  },
+  methods: {
+    fetchCharacters() {
+      // Effectuez ici une requête Axios pour récupérer la liste des personnages de sexe féminin et de l'espèce humaine.
+      api
+        .getFemaleCharacters()
+        .then((response) => {
+          this.characters = response;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
-    methods: {
-      fetchCharacters() {
-        // Récupère la liste des personnages de sexe féminin et de l'espèce humaine depuis l'API
-        axios
-          .get(CHARACTER_API_URL)
-          .then((response) => {
-            this.characters = response.data.results; // Stocke les personnages dans la variable "characters"
-            console.log(this.characters); 
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      },
-      showCharacterEpisodes(character) {
-        console.log(character.episode);
-        const baseUrlLenght = EPISODE_API_BASE_URL.length;
-        // Extrait les ID des épisodes à partir des liens dans la propriété "episode" du personnage
-        const ids = character.episode.map((link) =>
-          link.substring(baseUrlLenght)
-        );
-        // Récupère les informations des épisodes à partir de leurs ID
-        
-      },
+    showCharacterEpisodes(character) {
+      const baseUrlLenght = "https://rickandmortyapi.com/api/episode/".length;
+      const ids = character.episode.map((link) =>
+        link.substring(baseUrlLenght)
+      );
+      api
+        .getEpisodes(ids)
+        .then((response) => {
+          this.$refs.characterModal.openModal(character, response);
+        })
+        .catch((error) => {
+          this.$refs.characterModal.openModal(character, []);
+        });
     },
-    mounted() {
-      this.fetchCharacters(); // Appelle la fonction pour récupérer les personnages lors de la création du composant
-    },
-    components: {
-        CharacterList,
-    },
-  };
-  </script>
-  
-  <style scoped>
-  </style>
-  
+  },
+  mounted() {
+    this.fetchCharacters();
+  },
+  components: {
+    CharacterList,
+    CharacterModal,
+  },
+};
+</script>
+
+<style scoped>
+</style>

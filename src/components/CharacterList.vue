@@ -22,6 +22,9 @@
   export default {
     props: ["characters"],
     methods: {
+      characterClicked(character) {
+      this.$emit("character-clicked", character);
+    },
   },
   components: {
     CharacterStatus,
