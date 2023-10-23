@@ -9,7 +9,8 @@
         <img :src="character.image" :alt="character.name" class="w-48" />
         <div class="flex flex-col">
           <p class="font-black">{{ character.name }}</p>
-          <span class="text-gray-500 text-sm">Dernière localisation connue</span>
+          <CharacterStatus :status="character.status" />
+          <span class="text-gray-500 text-sm">Last Known Location</span>
           <div>{{ character.location.name }}</div>
         </div>
       </figure>
@@ -17,11 +18,13 @@
   </template>
   
   <script>
+  import CharacterStatus from "./CharacterStatus.vue";
   export default {
     props: ["characters"],
     methods: {
-    },
-    components: {
-    },
+  },
+  components: {
+    CharacterStatus,
+  },
   };
   </script>
