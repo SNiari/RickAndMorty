@@ -1,24 +1,33 @@
 <template>
   <div class="container mx-auto">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <CharacterList :characters="characters" />
 =======
+=======
+>>>>>>> a2ec3a25ce5edfedc93de17e0baa42f0f0f2de0d
       <h2>Liste des personnages</h2>
       <ul>
         <li v-for="character in characters" :key="character.id">
           {{ character.name }}
         </li>
       </ul>
+<<<<<<< HEAD
 >>>>>>> a2ec3a2 (feat: Ajout de l'affichage de la liste des personnages dans le template)
+=======
+>>>>>>> a2ec3a25ce5edfedc93de17e0baa42f0f0f2de0d
     </div>
 </template>
   
   <script>
   import axios from "axios";
 <<<<<<< HEAD
+<<<<<<< HEAD
   import CharacterList from "./CharacterList.vue";
 =======
 >>>>>>> a2ec3a2 (feat: Ajout de l'affichage de la liste des personnages dans le template)
+=======
+>>>>>>> a2ec3a25ce5edfedc93de17e0baa42f0f0f2de0d
   
   const CHARACTER_API_URL ="https://rickandmortyapi.com/api/character/?gender=female&species=human";
   const EPISODE_API_BASE_URL = "https://rickandmortyapi.com/api/episode/";
@@ -58,9 +67,12 @@
     },
     components: {
 <<<<<<< HEAD
+<<<<<<< HEAD
         CharacterList,
 =======
 >>>>>>> a2ec3a2 (feat: Ajout de l'affichage de la liste des personnages dans le template)
+=======
+>>>>>>> a2ec3a25ce5edfedc93de17e0baa42f0f0f2de0d
     },
   };
   </script>
